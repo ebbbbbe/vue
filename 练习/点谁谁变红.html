@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <!-- 对于普通数组来说 没有唯一的用值来表示 -->
+        <button v-for="(item,index) in fruits" :class="{red:btnIndex=== index}" @click="turn(index)" :key='item'>{{item}}</button>
+    </div>
+    <script src="./todomvc-app/js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'点谁谁变红',
+                fruits:['苹果','香蕉','橙子','菠萝','西瓜','甜瓜'],
+                btnIndex:''
+
+            },
+            methods:{
+                turn(index){
+                    this.btnIndex= index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

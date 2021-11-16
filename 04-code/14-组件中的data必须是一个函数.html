@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+    <p>{{msg}}</p>
+    <my-hello></my-hello>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        let obj = {
+            num :0
+        }
+        Vue.component('my-hello',{
+            template:`
+            <div>
+                <p>这是一个自己定义的全局组件</p>
+                <button @click='add'>单击按钮{{num}}</button>    
+            </div>
+            `,
+            data(){
+                return{
+                    num:0
+                }
+            },
+            methods:{
+                add(){
+                    this.num++
+                }
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                num:0
+            }
+        })
+    </script>
+    
+</body>
+</html>

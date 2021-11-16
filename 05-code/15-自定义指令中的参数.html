@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-box:bb.aa.cc="num">{{msg}}</p>
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.directive("box",{
+            inserted(el,binding){
+                // el:指令所在的标签
+                // binding:是一个对象 包含很多指令相关的内容
+                // binding.expression:指令中的数据
+                // binging.modifiers 指令的修饰符 就是指令参数后面点出来 有可能有很多项
+                // binding.value 获取指令绑定的值
+                console.log(el,binding);
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                num:200
+            }
+        })
+    </script>
+</body>
+</html>

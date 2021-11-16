@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <h1>vue的例子</h1>
+    <p>{{msg}}</p>
+    <button v-on:click='fn'>点击触发</button>
+    <button @click='f1(10,$event)'>单击触发</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip= false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            },
+            methods:{
+                fn(a,b){
+                    alert('单击按钮，弹出提示框')
+                    console.log(a,b);
+                },
+                f1(a,b){
+                    console.log(a,b);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

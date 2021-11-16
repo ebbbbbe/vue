@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <p>{{fullName}}</p>
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        Vue.config.productionTIp= false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                firstName:"",
+                lastName:'',
+                user:{
+                    name:'jack',
+                    age:20
+                }
+            },
+            computed:{
+                // 计算属性简写形式 是根据已有的数据计算成一个新数据
+                // 写成函数的好处，是可以书写大量的业务逻辑甚至很复杂的业务逻辑
+                // fullName(){
+                //     return this.dirstName + '' + this.lastName
+                // }
+                // 完整写法
+                checkAll:{
+                    get(){
+                        // 这里面写的业务逻辑相当于是简单书写法中的代码逻辑
+                        // return...
+                    },
+                    set(){
+                        // 只要和v-model一块使用了 ，一改变状态就会立即执行这里代码
+                        // 书写其他的业务
+                    }
+                }
+            },
+            watch:{
+                // z侦听属性的简写形式
+                // msg(newValue,oldValue){
+                //     // newValue是变化后的新数据
+                //     // oldValue是之前的数据
+                // }
+                // 完整写法
+                user:{
+                    immediate:true,//默认是false 默认情况下是数据发生了变化才会执行 但是我们想一渲染就立即执行一次 就需要添加词属性 立即执行
+                    deep:true,//表示深度监听 监听复杂数据的时候一定要加上这个属性对象或数组
+                    handler(newValue,oldValue){
+                        // 只要一发生就会执行里面的代码
+                    }
+                }
+            }
+        })
+
+        /* 
+            1.todmvc案例总结
+            指令的使用
+            事件的注册  事件的名称书写和原来是一样的
+            事件的修饰符 .enter .esc
+            v-model的修饰符 .lazy .trim .number 调用了parseFloat()
+            2.计算属性
+                根据已有的数据生成新的数据
+                优点：
+                1.可以是标签中的书写更加的简介洁 不用书写复杂的表达式
+                2.在计算属性的方法当中可以书写复杂的业务逻辑
+                3.会缓存计算后的数据 只计算一次就将数据缓存起来
+                4.如果依赖的原始数据发生变化 会重新进行计算 会再次进行缓存
+            3.侦听属性或监控属性
+                是对vm实例对象中的data中的数据进行监视或组件实例对象的data中数据进行监视
+                只要有数据变化就会执行里面的代码
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .base{
+          width:203px；
+          height：200px;
+          border:1px solid #000;
+      }
+      .red{
+          background-color: red;
+      }
+      .blue{
+          background-color:blue;
+      }
+      .fontRed{
+        color: red;
+        font-size:30px
+      }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <!-- 表达式结果的类型除了字符串之外，还可以是对象或数组 -->
+        <p v-bind:class="'fontRed'">{{msg}}</p>
+        <p :class='isTrue ? "fontRed":""'>{{msg}}</p>
+        <h2>对象的写法</h2>
+
+        
+    </div>
+</body>
+</html>

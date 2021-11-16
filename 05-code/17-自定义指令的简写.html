@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <p v-bb>{{msg}}==={{msg}}</p>
+        <p v-color='c1'>{{msg}}</p>
+        <p v-color='c2'>{{msg}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.directive('red',{
+            bind(el,binding){
+                el.style.backgoundColor='red'
+            }
+        })
+        Vue.component('demo',{
+            template:`
+            <div>
+                <h2 v-bb>这是一个demo组件</h2>    
+            </div>
+            `
+        })
+        Vue.directive('color',(el,binding)=>{
+            el.style.backgroundColor=binding.value
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                c1:"red",
+                c2:"blue"
+            },
+            filters:{
+
+            },
+            directives:{
+                bb(el,binding){
+                    el.style.backgroundColor='blue'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

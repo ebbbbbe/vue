@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子0</h1>
+        <p>{{msg}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                user:{
+                    name:'jack',
+                    age:20
+                }
+            },
+            // watch:{
+            //     msg:{
+            //         // 简写形式this
+            //     }
+            // }
+        })
+
+        // 一开始的时候没有数据进行监听，后期发现需要对某些数据进行监听
+        // 使用Vm.$warch这种方式来监听数据的更新
+        vm.$watch('msg',function(newValue,oldValue){
+            console.log('数据发生了变化',newValue,oldValue);
+        })
+        // vm.$watch('user',function(newValue,oldVAlue){
+        //     console.log('数据发生了变化',newValue,oldVa);
+        // })
+
+        vm.$watch('user',{
+            immediate:true,
+            deep:true,
+            handler(newValue,oldValue){
+                console.log('数据发生了变化','newValue,oldValue');
+            }
+        })
+    </script>
+</body>
+</html>

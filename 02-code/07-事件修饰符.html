@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 300px;
+            height: 300px;
+            background-color:orange
+        }
+        .box{
+            width:160px;
+            height:160px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <div class="demo" @click='btnDemo'>
+            <div class='box' @click='btnBox'></div>
+            <a href="http://www.atguigu.com" @click.prevent.stop='fn'>尚硅谷</a>
+        </div>
+        <button @click.once='btnFn'>只触发一次</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            },
+            methods:{
+                btnDemo(){
+                    console.log('demo');
+                },
+                btnBox(event){
+                    //如果没有传递参数，那么此时的第一个形参表示事件对象
+                    // event.stopPropagation();//阻止冒泡
+                    console.log('box');
+                },
+                fn(){
+                    console.log('仅仅是输出一句话，不要默认跳转');
+                },
+                btnFn(){
+                    console.log('aaaaaaaa');
+                }
+            }
+        })
+        // 事件冒泡： 当一个元素的事件被触发的时候，比如说单击事件 那么相同的事件会在这个元素的所有父级元素中依次触发
+        // 事件的三个阶段：捕获 目标 冒泡 默认是冒泡 捕获和冒泡刚好相反
+    </script>
+</body>
+</html>

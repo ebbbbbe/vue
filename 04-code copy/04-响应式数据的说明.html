@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <p>{{user.name}}=={{user.age}} =={{user.address}}</p>
+        <button @click='add'>添加数据</button>
+    </div>
+
+    <script>
+         //创建Vue实例,得到 ViewModel
+         Vue.config.productionTip=false;
+         const vm = new Vue({
+            el: '#app',
+            data: {
+                msg:'hello',
+                user:{
+                    name:'jack',
+                    age:20
+                }
+            },
+            methods: {
+                add(){
+                    
+                }
+            }
+         });
+    </script>
+</body>
+
+</html>

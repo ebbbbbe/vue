@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h1>vue的例子</h1>
+        <h2>{{msg}}</h2>
+        <button @click='run'>开始</button>
+        <button @click='stop'>停止</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'今天主要学习剩下的其他指令',
+                timeId:0
+            },
+            methods:{
+                run(){
+                    clearInterval(this.timeId)//在开始之前先清除掉之前的定时器
+                    // 原理就是不断的将字符串的第一个字符剪切下来，拼接到最后 要用到定时器
+                    this.timeId = setInterval(()=>{
+                        this.msg = this.msg.slice(1) + this.msg.slice(0,1)
+                    })
+                },
+                stop(){
+                    // 所谓停止 就是清空定时器
+                    clearInterval(this.timeId)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <father></father>
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        Vue.config.productionTip= false;
+        Vue.component('father',{
+            template:`
+            <div>
+                <h2>这是一个父组件father</h2>  
+                <son></son>  
+            </div>
+            `
+        })
+        Vue.component('son',{
+            template:`
+            <div>
+                <h3>这是一个子组件son</h3>    
+            </div>
+            `
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            }
+        })
+    </script>
+</body>
+</html>

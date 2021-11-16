@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <p>{{link}}</p>
+        <!-- 相同点：会将标签间的原有内容给覆盖掉 -->
+        <!-- v-text 会将数据当成非常普通的字符串，给渲染到对应的标签间，不会解析标签 textContent -->
+        <div v-text='link'>textContent数据</div>
+        <!-- v-html 会将渲染的数据识别成对应的标签并渲染到页面上 -->
+        <div v-html='link'>innerHTML数据</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                link: '<a href="http://www.atguigu.com">尚硅谷</a>' 
+            }
+        })
+    </script>
+</body>
+</html>

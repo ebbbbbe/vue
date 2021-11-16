@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id='app'>
+    <h1>vue的例子</h1>
+    <form action="">
+        用户名：<input type="text" v-model='name'><br/>
+        密码：<input type="text" v-model='password'><br/>
+        性别：男<input type="radio" name="sex" value='男' v-model='gender'>女<input type="radio"name='sex' value='女' v-model='gender'>
+        城市：<select name="" id="" v-model='city'>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="深圳">深圳</option>
+            <option value="武汉">武汉</option>
+        </select><br/>
+        爱好：
+        <input type="checkbox" v-model='hobby' value='游泳'>游泳
+        <input type="checkbox" v-model='hobby' value='滑雪'>滑雪
+        <input type="checkbox" v-model='hobby' value='打球'>打球<br/>
+        简介：<textarea name="" id="" cols="30" rows="10" v-model='bio'></textarea><br/>
+        <input type="checkbox" v-model='isAgree'>同意
+   </div>
+    </form>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                name:'jack',
+                password:'1234556',
+                age:20,
+                gender:'男',
+                city:'武汉',
+                hobby:['游泳'],
+                bio:'aaa',
+                isAgree:false
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <input type="text" @keyup='showMsg' v-model='msg'>
+        <input type="text" @keydown.tab='showMsg' v-model='msg'>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;//关闭生产提示
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            },
+            methods:{
+                showMsg(event){
+                    console.log(this.msg);
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

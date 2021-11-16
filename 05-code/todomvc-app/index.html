@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Template • TodoMVC</title>
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+	<section class="todoapp" id="todoapp">
+		<todo-header @add='add'></todo-header>
+		<todo-main :todo-list='todoList' @del='del' @edit='edit' :edit-id='editId' @update='update' :finish='finish'
+			@checkall='checkall'>
+		</todo-main>
+		<todo-footer :rest='rest' :finish='finish' @complete='complete' :vanish='vanish' :todoList="todoList">
+		</todo-footer>
+	</section>
+	<script src="./js/vue.js"></script>
+	<script src="./js/todo-header.js"></script>
+	<script src="./js/todo-main.js"></script>
+	<script src="./js/todo-footer.js"></script>
+	<script src="js/app.js"></script>
+</body>
+
+</html>

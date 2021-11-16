@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="text" v-demo='msg'>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.directive('demo',{
+            bind(){
+                // 指令第一次绑定到元素时调用，只调用一次 但是页面有可能没有渲染完毕
+                console.log('bind钩子函数执行了');
+            },
+            inserted(){
+                // 页面渲染完成之后执行
+                console.log('inserted执行了...');
+            },
+            update(){
+                // 数据更新时调用
+                console.log('update执行了...');
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            }
+        })
+    </script>
+</body>
+</html>

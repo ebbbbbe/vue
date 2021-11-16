@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg | aa}}</p>
+        
+        <demo></demo>
+    </div>
+    <!-- <script src="./js/moment.js"></script> -->
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.filter('aa',value=>{
+            return value.toUpperCase();
+        })
+
+        Vue.component('demo',{
+            template:`
+            <div>
+                <h2>我是demo组件</h2>
+                <p>{{msg | aa}}</p>
+                <p>{{msg | bb}}</p>
+            </div>
+            `,
+            data(){
+                return{
+                    msg:'hello AtGuidu'
+                }
+            },
+            filters:{
+                bb(value){
+                    return value.toLowerCase()
+                }
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hEllo'
+            }
+        })
+    </script>
+</body>
+</html>

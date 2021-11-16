@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>
+            {{msg}}
+        </h2>
+        <li>姓名：{{user[0].name}}</li>
+        <li>年龄：{{user[1].age}}</li>
+        <a v-bind:href="user[0].num">点击跳转</a>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.config.productionTip=false;
+        Vue.c
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                msg:'hello Vue',
+                user:[
+                    {
+                        name:'laowang',
+                        age:29,
+                        num:'http://www.baidu.com'
+
+                    },
+                    {
+                        name:'laobai',
+                        age:10
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js中的函数只要调用就会有返回值（包括undefined）
+        // 计算两个数的和 封装成函数
+        function add(n1,n2){
+            let sum = n1 + n2
+            return sum //sum 就是add函数的返回值，要将此值返回需要使用关键字return
+            console.log(123);//return 后面的代码不会执行
+        }
+
+        // console.log(add(10,20));
+        // let res = alert('弹框提示框')
+        // console.log(res);
+        // let password = prompt('请输入您的密码')
+        // console.log(password);
+
+        function fn(){
+            console.log('aaaaa')
+            console.log('bbbbb')
+            console.log('ccccc')
+        }
+        fn();
+        window.fn()//全局作用域中定义的函数 就是window对象的方法
+        // let aa = fn()
+        // console.log(aa);
+
+        console.log('================');
+        var num = 200; //变量 window.num 对象的属性
+        console.log(num,window.num);//全局作用域中定义的变量 其实就是window的属性
+        // 变量或对象的属性就是用来存储数据的
+        // 函数或对象的方法就是封装完了之后来实现某种功能或业务的
+
+        /* 
+        1.js中的所有的函数（方法），只要调用就会有返回值（包括undefined）
+        2.如果我们使用函数的返回值，需要定义变量来接收或直接使用
+        3.如果函数仅仅是调用执行，我们不要他的返回值，则不需要定义变量来接收
+        */
+    </script>
+</body>
+</html>

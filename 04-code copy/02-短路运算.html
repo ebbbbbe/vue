@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*  短路运算的运算符就是之前逻辑运算符
+        && || 
+        当运算符的左边或两边不是布尔类型数据的时候，此时要进行短路运算
+        && 找false 找假 0 && 100  10 && 20
+        先看第一个操作数（运算符左边的），如果不是一个布尔类型的数据的话，底层会将这个数据先转换成boolean类型的数据，看是否为false ,如果是，直接返回第一个操作数，第二个不管是什么，反之直接返回第二个操作数 不管是第二个操作数是什么
+        || 找true 找真 0 || 20  10 || 300
+        先看第一个操作数（运算符左边的），如果第一个操作数不是布尔类型的数据大话，底层会将这个数据先装换为boolean 类型的数据 看是否为true 如果是true则直接返回不管第二个操作数是什么反之直接返回第二个操作数 而不管第二个是什么 */
+        // 计算两个数的和
+        function add(n1,n2){
+            n1 = n1 || 0
+            n2 = n2 || 0
+            var sum = n1 + n2
+            console.log(sum);//NaN
+            // 任何数字+undefined进行数学运算结果都为NaN
+            // NaN是number类型中 的一个特殊数据 表示一个不正常的数字，本来数学运算中应该算成一个正常的number 数字，但是最终没有计算成真正的number数字就会报NaN
+        }
+        add(10)
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <p>{{user.name}} == {{user.age}} == {{user.address}}</p>
+        <p>{{list[1]}}</p>
+        <button @click='add'>添加数据</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip= false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                user:{
+                    name:'jack',
+                    age:20
+                },
+                list: [10,100,20,39,35,69]
+            },
+            methods:{
+                add(){
+                    this.$set(this.list,1,300)
+                    this.$set(this.user,'address','武汉')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

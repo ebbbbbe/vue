@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .jack {
+          width: 300px;
+          height: 200px;
+          background-color: blue;
+          color:#fff;
+        }
+        .rose {
+          width: 200px;
+          height: 100px;
+          background-color: orangered;
+          color:#fff;
+        }
+      </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <jack></jack>
+        <rose></rose>
+    </div>
+    <script src='./js/vue.js'></script>
+    <script>
+        Vue.config.productionTip=false;
+        const bus = new Vue()
+        Vue.component('jack',{
+            template:`
+            <div class='jack'>
+                <h2>这是一个jack组件</h2>
+                <button @click='tell'>告诉你个秘密</button>    
+            </div>
+            `,
+            data(){
+                return{
+                    msg:'彩票中奖了'
+                }
+            },
+            methods:{
+                tell(){
+                    bus.$emit('getData',this.msg)
+                }
+            }
+        })
+        Vue.component('rose',{
+            template:`
+            <div>
+                <h2>这是一个rose组件</h2>  
+                <p>jack的秘密是：{{secret}}</p>  
+            </div>
+            `,
+            data(){
+                return{
+                    secret:''
+                }
+            },
+            mounted(){
+                bus.$on('getData',msg=>{
+                    console.log('数据传递过来了');
+                    this.secret= msg
+                })
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            }
+        })
+    </script>
+</body>
+</html>

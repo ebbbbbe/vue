@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <button @click='del'>销毁实例</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                timeId:''
+            },
+            methods:{
+               del(){
+                this.$destory() //销毁实例是指的销毁实例对象上的功能，实例对象还存在，只是相关功能无效
+               }
+            },
+            beforeCreate(){
+                console.log(this);
+                console.log('beforeCreate执行了',this.msg);
+                this.num = 100
+                // debugger;
+            },
+            created(){
+                console.log('created执行了',this.msg);
+            },
+            beforeMount(){
+                console.log('beforeMount执行了',this.msg);
+                document.querySelector('p').innerHTML= '哈哈哈哈';
+            },
+            mounted(){
+                console.log('mounted执行了','this.msg');
+                this.timeId = seetInterVal(()=>{
+                    console.log('aaaa');
+                },500);
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate执行了',this.nsg);
+                // debugger;
+            },
+            updated(){
+                console.log('updated执行了',this.msg);
+            },
+            beforeDestroy(){
+                clearInterval(this.timeId)
+            },
+            destroyed(){
+                // 关闭页面
+                // window.close()
+            }
+        })
+    </script>
+</body>
+</html>

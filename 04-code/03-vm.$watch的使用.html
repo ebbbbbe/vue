@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                user:{
+                    name:'jack',
+                    age:20
+                }
+                // list:[10,20,20]
+            }
+        })
+        vm.$watch('msg',function(newValue,oldValue){
+            console.log('数据发生变化',newValue,oldValue);
+        })
+
+        vm.$watch('user',{
+            immediate:true,
+            deep:true,
+            handler(newValue,oldValue){
+                console.log('数据发生了变化',newValue,oldValue);
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        
+    </div>
+
+    <script>
+         //创建Vue实例,得到 ViewModel
+         const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+         });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <!-- 注册事件的简写形式用一个@来代替原来的v-on -->
+        <button @click='showMsg'>获取数据</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            },
+            methods:{
+                showMsg(){
+                    console.log(this);
+                    //在vue的事件处理程序中，可有直接使用this，属性名获取对应的data中的数据
+                    console.log(this.msg);
+                },
+                handlerFn:function(){
+                    console.log(123);
+                }
+            }
+        })
+
+        let  obj = {
+            name:'jack',
+            sayHi:function(){
+                console.log(123);
+            },
+            sayHello(){
+                // ES6的简写形式
+            }
+        }
+
+        /* 
+        1.vue中注册事件要使用v-on：事件名称
+        2.事件注册简写可以使用一个@
+        3.事件处理程序统一写在methods
+        4.Vue中事件处理程序中this指向的是vue实例对象
+        5.vue中事件处理程序不能使用箭头函数
+        */
+    </script>
+</body>
+</html>

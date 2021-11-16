@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>vue的例子</p>
+        <p>{{msg}}</p>
+        <p v-pre>
+            每一个星球都有一个驱动核心，
+            每一种思想都有影响力的种子。
+            感受世界的温度，
+            年轻的你也能成为改变世界的动力，
+            百度珍惜你所有的潜力。{{msg}}
+            你的潜力，是改变世界的动力！
+        </p>
+        <!-- once只会渲染一次 后期数据更新，不会有变化 -->
+        <p v-once>{{msg}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            }
+        })
+    </script>
+</body>
+</html>

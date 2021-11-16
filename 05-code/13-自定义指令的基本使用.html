@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <!-- 使用指令的时候 在定义的指令前面加上v -->
+        <input type="text" v-focus>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.directive('focus',{
+            inserted(el,binding){
+                // el:表示自定义指令所在的标签
+                // binding 是一个对象呢里面存储着很多指令相关的数据 指令名称 指令的参数 指令的修饰
+                // console.log(el,binding)
+                el.focus()
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msh:'hello'
+            },
+            // mounred(){
+            //     带页面都渲染完成之后
+            //     document.querySelector('input').focus()
+            // }
+        })
+    </script>
+</html>

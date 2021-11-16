@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <!-- v-if如果条件成立则显示对应的标签内容 反之则显示v-else对应的标签结构 -->
+        <p v-if='type==="A"'>A级工资</p>
+        <p v-else-if='type === "B"'>B级工资</p>
+        <p v-else-if='type==="C"'>C级工资</p>
+        <p v-else-if='type==="D"'>D级工资</p>
+        <p v-else>E级工资</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip= false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                age:'20',
+                type:'A'
+            }
+        })
+    </script>
+</body>
+</html>

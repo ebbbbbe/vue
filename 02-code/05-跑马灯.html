@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <p>{{msg}}</p>
+        <button v-on:click='run'>开始</button>
+        <button @click='stop'>停止</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'AbcDCf',
+                interval:'null'
+            },
+            methods:{
+               run(){
+                    clearInterval(this.interval)
+                  this.interval=setInterval(()=>{
+                      this.msg= this.msg.slice(1)+this.msg.slice(0,1)
+                    //   this.msg = this.msg.substring(1) + this.msg.substring(0,1)
+                    //   this.msg= this.msg.substr(1) + this.msg.substr(0,1)
+                  },1000) 
+               },
+               stop(){
+                   clearInterval(this.interval)
+               }
+            }
+        })
+    </script>
+</body>
+</html>

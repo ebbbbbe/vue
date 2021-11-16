@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <!-- v-if的指令值为boolean类型 如果为False则不显示当前标签 根本就不创建 为true则创建 对于操作频率比较次的操作使用v-if -->
+        <p v-if='isShow'>{{msg}}=== v-if</p>
+        <!-- v-show如果值为false p 其实已经创建了已经存在了 ，只是没有显示在页面上为true则会显示 对于频率切换的操作 推荐使用v-show -->
+        <p v-show='isShow'>{{msg}}===v-show</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;//
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                isShow:false
+            }
+        })
+
+    </script>
+</body>
+</html>

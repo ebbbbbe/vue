@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width:300px;
+            height: 300px;
+            background-color:pink;
+        }
+        .son{
+            width: 160px;
+            height: 160px;background-color: red;
+            color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <father></father>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.component('father',{
+            template:`
+            <div class=father>
+                <h2>这是一个父组件father</h2>   
+                <son :car='car' :prece='prece'></son> 
+            </div>
+            `,
+            data(){
+                return{
+                    car:'长城',
+                    prece:600000
+                }
+            }
+        })
+        Vue.component('son',{
+            template:`
+            <div class=son>
+                  <h3>这是一个子组件son</h3>
+                  <p>车的品牌是：{{car}} 车的价格：{{prece}}</p>  
+            </div>
+            `,
+            props:['car','prece']
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            }
+        })
+    </script>
+</body>
+</html>

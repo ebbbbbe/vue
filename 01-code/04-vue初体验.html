@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>
+            {{msg}}
+            <!-- {{}} =>插值表达式 通过{{}} 显示data中的数据 -->
+        </h2>
+    </div>
+    <script>
+        Vue.config.productionTip=false; //设置为 false 以阻止 vue 在启动时生成生产提示
+        var vm = new Vue({//vm => VM 试图模型
+            el:'#app', //el element 页面节点试图
+            data:{
+                msg:'Hello Vue' // model 表示数据模型
+            }
+        })
+       Vue.config.productionTip
+    </script>
+</body>
+</html>

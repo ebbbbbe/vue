@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id='app'>
+       <h1>vue的例子</h1>
+       <p>{{msg}}</p>
+        <my-header></my-header>
+   </div> 
+   <script src="./js/vue.js"></script>
+   <script>
+       Vue.config.productionTip=false;
+       Vue.component('my-header',{
+           template:`
+           <div>定义了一个头部组件</div>
+           <p>段落文字</p>
+           <p>{{}}</p>
+           `,
+           data(){
+               return {
+                   num:100
+               }
+           },
+           methods:{
+               fn(){
+                   console.log(123);
+               }
+           }
+       })
+       const vm = new Vue({
+           el:'#app',
+           data:{
+               msg:'hello'
+           },
+           methods:{
+
+           },
+           computed:{
+
+           }
+       })
+
+       /* 
+       1.一定是在new Vue() 之前来注册组件
+       2.组件名称不嫩和原有标签重名
+       3.组件中的参数和原来一样 methods computed watch... 除 el
+       4.组件中一定要有一个跟标签 包裹着其他标签结构
+       5.组件中的data一定是一个函数 函数内返回一个对象
+       
+        */
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue的例子</h1>
+        <p>{{msg}}</p>
+        <ul>
+            <!-- 这个是普通的遍历数组 list 是数组的名称 item就是遍历到的数组的每一项 -->
+            <!-- <li v-for='item in list':key="item.id">姓名：{{item.name}} 年龄：{{item.age}}</li> -->
+            <!-- 如果要使用索引的话，还需要添加一个index -->
+            <li v-for='(item,index) in list' :key='item.id'> 
+                索引：{{index}} 姓名：{{item.name}} 年龄：{{item.age}}
+            </li>
+        </ul>
+        <hr/>
+        <ul>
+            <li v-for='(item,key,index) in stu'>{{index}}:{{key}}:{{item}}</li>
+        </ul>
+        <hr/>
+        <ul>
+            <li v-for='(item,index) in msg'>{{index}}:{{item}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for='(item,index) in 10'>{{index}}:{{item}}</li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                list:[
+                    {id:1,name:'jack',age:18},
+                    {id:2,name:'rose',age:19},
+                    {id:3,name:'jerry',age:20}
+                ],
+                stu:{
+                    name:'tom',
+                    age:19,
+                    gender:'男'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

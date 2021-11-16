@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 600px;
+            height: 400px;
+            background-color:pink;
+            color: #fff;
+        }
+        .son{
+            width: 400px;
+            height: 200px;
+            background-color:blue;
+            color: #fff;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <p>{{msg}}</p>
+        <father></father>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.component('father',{
+            template:`
+            <div class='father'>
+                <h2>这是一个father组件</h2>
+                <son :carBrand='car.brand' :carPrice='car.price'></son>    
+            </div>
+            `,
+            data(){
+                return {
+                    car:{
+                        brand:"长城",
+                        price:6000
+                    },
+                    msg:"hello father component"
+                }
+            }
+        })
+        Vue.component('son',{
+            template:`
+            <div class='son'>
+                <p>这是一个son组件</p>
+                <p>{{msg}}</p>
+                <p>汽车的品牌是：{{carBrand}}===汽车的价格是{{carPrice}}</p>
+            </div>
+            `,
+            data(){
+                return{
+                    msg:'aaa'
+                }
+            },
+            props:['carBrand','carPrice']
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:"hello"
+            }
+        })
+    </script>
+</body>
+</html>
