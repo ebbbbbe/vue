@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <p>{{msg}}</p>
+        <p>{{date1 | tiem('YYYY')}}</p>
+        <hr>
+        <p>{{date2 | tiem('YYYY-MM-DD HH:mm:ss')}}</p>
+        <hr>
+        <p>{{date3 | tiem('YYYY-MM')}}</p>
+        <hr>
+        <p>{{date2 | tiem}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/moment.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.filter('tiem',(value,str='YYYY-MM-DD HH:mm:ss')=>{
+            return moment(value).format(str)
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:"hello",
+                date1:1637034183629,
+                date2:new Date(),
+                date3:'2021-11-16'
+
+            }
+        })
+    </script>
+</body>
+</html>
