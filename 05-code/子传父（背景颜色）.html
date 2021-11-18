@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 606px;
+            height: 300px;
+            border: 1px solid  #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="box" :style="{backgroundColor:color}">
+        <p>{{msg}}</p>
+        <demo @send='getColor'></demo>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.config.productionTip=false;
+        Vue.component('demo',{
+            template:`
+            <div>
+                <button @click="changColor('red')">红色</button>
+                <button @click="changColor('yellow')">黄色</button>
+                <button @click="changColor('blue')">蓝色</button>
+                <button @click="changColor('purple')">紫色</button>
+            </div>
+            `,
+            methods:{
+                changColor(value){
+                    this.$emit('send',value)
+                }
+            }
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                color:''
+            },
+            methods:{
+                getColor(color){
+                    this.color=color
+                }
+            }
+        })
+    </script>
+</body>
+</html>
