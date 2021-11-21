@@ -2,7 +2,7 @@ Vue.component('todo-main',{
     template:`
     <section class="main">
 				<input id="toggle-all" class="toggle-all" type="checkbox" v-model='select'>
-				<label for="toggle-all" v-model='spare'>Mark all as complete</label>
+				<label for="toggle-all" v-show='spare'>Mark all as complete</label>
 				<ul class="todo-list">
 					<li :class="{completed:item.done,editing:editId === item.id}" v-for='item in todoList'>
 						<div class="view">
@@ -54,7 +54,7 @@ Vue.component('todo-main',{
             }
         },
         spare(){
-            return this.todoList.length
+            return tNh
         }
     }
 })

@@ -1,6 +1,6 @@
 (function (window) {
 	'use strict';
-
+	
 	// Your starting point. Enjoy the ride!
 	// 在这里面写代码
 	Vue.config.productionTip=false;
