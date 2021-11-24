@@ -15,7 +15,8 @@
       <div class="col-xs-6">
         <div class="panel">
           <div class="panel-body">
-              <router-view></router-view>
+            <!-- ???????? 在这时显示对应的组件内容 -->
+            <router-view></router-view>
           </div>
         </div>
       </div>
@@ -24,11 +25,9 @@
 </template>
 
 <script>
-export default {
-
-}
+// import './ass'
+export default {};
 </script>
 
 <style>
-
 </style>
