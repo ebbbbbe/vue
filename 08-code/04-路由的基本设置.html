@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h1>Vue的例子</h1>
+        <p>{{msg}}</p>
+        <router-view></router-view>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.js"></script>
+    <script>
+        Vue.config.productionTip = false
+        Vue.use(VueRouter)
+        const Home ={
+            template:`
+            <div>
+            <h2>这是一个User用户中心组件</h2>    
+            </div>
+            `
+        }
+        const User = {
+            template:`
+            <div>
+            <h2>这是一个User用户中心组件</h2>    
+            </div>
+            `
+        }
+        const About = {
+            template:`
+            <div>
+                <h2>这是一个About关于我们的组件</h2>    
+            </div>
+            `
+        }
+        const router = new VueRouter({
+            routes:[
+                {path:'/homw',component:Home},
+                {path:'/user',component:User},
+                {path:'/about',component:About}
+                
+            ]
+        })
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                msg:'hello'
+            },
+            router                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        })
+    </script>
+</body>
+</html>

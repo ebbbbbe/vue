@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>乐淘商城</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./lib/mui/css/mui.css" />
+  <link rel="stylesheet" href="./css/common.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+
+<body>
+  <div class="lt_container" id="app">
+    <div class="lt_header">
+      <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
+      <h3>乐淘云购</h3>
+      <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
+    </div>
+    <div class="lt_main">
+      <router-view></router-view>
+    </div>
+    <div class="lt_footer">
+      <ul>
+        <li>
+          <router-link to="/home">
+            <i class="fa fa-home"></i>
+            <p>首页</p>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/category">
+            <i class="fa fa-bars"></i>
+            <p>分类页</p>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/cart">
+            <i class="fa fa-shopping-cart"></i>
+            <p>购物车</p>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/user">
+            <i class="fa fa-user"></i>
+            <p>用户中心</p>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script src="../js/vue-router.js"></script>
+  <script>
+    Vue.config.productionTip = false;
+    // 2.注册路由插件
+    Vue.use(VueRouter)
+    const Home = {
+      template: `
+         <div>
+          <h2>这是一个Home主页面组件</h2>  
+        </div>
+         `
+    }
+    const Category = {
+      template: `
+         <div>
+          <h2>这是一个Category主页面组件</h2>  
+        </div>
+         `
+    }
+    const Cart = {
+      template: `
+         <div>
+          <h2>这是一个Cart主页面组件</h2>  
+        </div>
+         `
+    }
+    const User = {
+      template: `
+         <div>
+          <h2>这是一个User主页面组件</h2>  
+        </div>
+         `
+    }
+    //  3.创建路由对象实例
+    const router = new VueRouter({
+      linkActiveClass: 'current',
+      linkExactActiveClass: 'current',
+      routes: [
+        { path: '/', redirect: '/home' },
+        { path: '/home', component: Home },
+        { path: '/category', component: Category, },
+        { path: '/user', component: User },
+        { path: '/cart', component: Cart }
+      ]
+    })
+    const vm = new Vue({
+      el: '#app',
+      // 4.和vm实例对象关联起来
+      router,
+    })
+  </script>
+</body>
+
+</html>
